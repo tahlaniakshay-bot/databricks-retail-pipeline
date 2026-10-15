@@ -1,0 +1,16 @@
+resources:
+  jobs:
+    Retail_Data_Pipeline:
+      name: Retail Data Pipeline
+      tasks:
+        - task_key: Retail_Pipeline
+          notebook_task:
+            notebook_path: ../src/End_to_End_Retail_Project.py
+            
+      queue:
+        enabled: true
+      environments:
+        - environment_key: Task_environment
+          spec:
+            environment_version: "6"
+      performance_target: PERFORMANCE_OPTIMIZED

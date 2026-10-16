@@ -2,15 +2,24 @@ resources:
   jobs:
     Retail_Data_Pipeline:
       name: Retail Data Pipeline
+
+      parameters:
+        - name: catalog
+          default: ${var.catalog}
+
       tasks:
         - task_key: Retail_Pipeline
           notebook_task:
             notebook_path: ../src/End_to_End_Retail_Project.py
-            
+            base_parameters:
+              catalog: ${var.catalog}
+
       queue:
         enabled: true
+
       environments:
         - environment_key: Task_environment
           spec:
             environment_version: "6"
+
       performance_target: PERFORMANCE_OPTIMIZED

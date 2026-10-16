@@ -5,7 +5,7 @@
 
 # COMMAND ----------
 
-dbutils.widgets.text("catalog", "retail_project")
+dbutils.widgets.text("catalog", "")
 
 catalog = dbutils.widgets.get("catalog")
 
